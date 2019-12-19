@@ -172,6 +172,22 @@
 											<div id="google_map" class="google_map">
 												<div class="map_container">
 													<div id="map"></div>
+													<script>
+													function initMap(){
+													var lcoation = {lat: -39.136090, lng: 84.529907};
+													var map = new google.map.MAP(document.getElementById("map"), {
+													zoom: 4,
+													center: location
+													});
+													var marker = new google.maps.Marker({
+														position: lcoation,
+														map: map
+													});
+													}
+													</script>
+													<!-- <script> -->
+													<!-- async defer src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDDEVi6WIQlam0i4aE334SZj8PDW65OmcI = initMap " -->
+													<!-- </script> -->
 												</div>
 											</div>
 										</div>
@@ -195,7 +211,7 @@
 <script src="plugins/mCustomScrollbar/jquery.mCustomScrollbar.js"></script>
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDEVi6WIQlam0i4aE334SZj8PDW65OmcI=initMap "></script>
 <script src="js/contact.js"></script>
 </body>
 </html>
