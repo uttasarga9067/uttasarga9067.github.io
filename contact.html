@@ -152,15 +152,17 @@
 									<p>Please State your Name, Email- ID and the reason you would like to contact me and I will get back to you as soon as possible.</p>
 									</div>
 									<div class="contact_form_container">
-										<form action="#" id="contact_form" class="contact_form clearfix">
-											<div><input type="text" class="contact_input" placeholder="Name" required="required"></div>
-											<div><input type="email" class="contact_input" placeholder="E-mail" required="required"></div>
-											<input type="text" class="contact_input" placeholder="Subject" required="required">
-											<textarea class="contact_input contact_textarea" placeholder="Message" required="required"></textarea>
+										<form action="actionpage.php" method="POST" id="contact_form" class="contact_form clearfix">
+											<div><input type="text" class="contact_input" placeholder="Name" name="name" id="name" required></div>
+											<div><input type="email" class="contact_input" placeholder="E-mail" name="email" id="email" required></div>
+											<input type="text" class="contact_input" placeholder="Subject" name="subject" id="subject" required>
+											<textarea class="contact_input contact_textarea" placeholder="Message" name="message" id="message" maxlength="6000" required></textarea>
 											<button class="contact_button">Send Message</button>
 										</form>
 									</div>
 								</div>
+		
+
 
 								<!-- Contact Map -->
 								<div class="col-xl-6">
@@ -183,10 +185,6 @@
 					
 			</div>
 		</div>
-<!-- <div align='center'> -->
-	<!-- <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-<!-- <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 		
 	</div>
 </div>
