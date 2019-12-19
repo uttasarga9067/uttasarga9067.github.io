@@ -7,7 +7,7 @@
 1. Vars and Inits
 2. Set Header
 3. Init Menu
-4. Init Google Map
+4. Init Isotope
 
 
 ******************************/
@@ -26,7 +26,6 @@ $(document).ready(function()
 	var menu = $('.menu');
 	var burger = $('.hamburger');
 	var menuActive = false;
-	var map;
 
 	setHeader();
 
@@ -53,7 +52,7 @@ $(document).ready(function()
 	});
 
 	initMenu();
-	initGoogleMap();
+	initIsotope();
 
 	/* 
 
@@ -113,56 +112,44 @@ $(document).ready(function()
 
 	/* 
 
-	4. Init Google Map
+	4. Init Isotope Filtering
 
 	*/
 
-	function initGoogleMap()
-	{
-		var myLatlng = new google.maps.LatLng(34.063685,-118.272936);
-    	var mapOptions = 
+    function initIsotope()
+    {
+    	if($('.grid').length)
     	{
-    		center: myLatlng,
-	       	zoom: 14,
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			draggable: true,
-			scrollwheel: false,
-			zoomControl: true,
-			zoomControlOptions:
-			{
-				position: google.maps.ControlPosition.RIGHT_CENTER
-			},
-			mapTypeControl: false,
-			scaleControl: false,
-			streetViewControl: false,
-			rotateControl: false,
-			fullscreenControl: true,
-			styles:
-			[
-			  {
-			    "featureType": "road.highway",
-			    "elementType": "geometry.fill",
-			    "stylers": [
-			      {
-			        "color": "#ffeba1"
-			      }
-			    ]
-			  }
-			]
+    		$('.grid').isotope({
+	  			itemSelector: '.grid-item',
+	  			percentPosition: true,
+	  			masonry:
+	  			{
+				    horizontalOrder: true
+			  	}
+	        });
+
+	        if($('.portfolio_category').length)
+	    	{
+	    		$('.portfolio_category').click(function()
+		    	{
+			        $('.portfolio_category.active').removeClass('active');
+			        $(this).addClass('active');
+			 
+			        var selector = $(this).attr('data-filter');
+			        $('.portfolio_grid').isotope({
+			            filter: selector,
+			            animationOptions: {
+			                duration: 750,
+			                easing: 'linear',
+			                queue: false
+			            }
+			        });
+
+			         return false;
+			    });
+	    	}
     	}
-
-    	// Initialize a map with options
-    	map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-		// Re-center map after window resize
-		google.maps.event.addDomListener(window, 'resize', function()
-		{
-			setTimeout(function()
-			{
-				google.maps.event.trigger(map, "resize");
-				map.setCenter(myLatlng);
-			}, 1400);
-		});
-	}
+    }
 
 });
